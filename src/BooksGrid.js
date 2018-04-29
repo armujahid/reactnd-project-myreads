@@ -9,7 +9,7 @@ class BooksGrid extends Component {
   }
 
   render() {
-    const {books, onShelfChange} = this.props;
+    const {books, onShelfChange} = this.props
 
     return (
       <ol className="books-grid">

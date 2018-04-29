@@ -9,13 +9,14 @@ class Book extends Component {
   }
 
   render() {
-    const { book, onShelfChange } = this.props;
+    const { book, onShelfChange } = this.props
     // TODO: add media query to conditionally display small and large thumbnail
-    const bookCoverStyle = { width: 128, height: 193 };
+    const bookCoverStyle = { width: 128, height: 193 }
 
     if (book.imageLinks && book.imageLinks.thumbnail) {
       bookCoverStyle.backgroundImage = `url(${book.imageLinks.thumbnail})`
     }
+
     return (
       <div className="book">
         <div className="book-top">

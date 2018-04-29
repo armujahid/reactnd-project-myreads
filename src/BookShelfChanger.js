@@ -8,7 +8,7 @@ class BookShelfChanger extends Component {
   }
 
   render() {
-    const { shelf, onShelfChange } = this.props;
+    const { shelf, onShelfChange } = this.props
 
     return (
       <div className="book-shelf-changer">

@@ -19,7 +19,7 @@ class BooksApp extends Component {
   updateBookShelf = (book , shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       this.setState(previous => {
-        const index = previous.books.findIndex(p => p.id === book.id);
+        const index = previous.books.findIndex(p => p.id === book.id)
         return {
           books: [
             ...previous.books.slice(0,index),
@@ -36,7 +36,7 @@ class BooksApp extends Component {
   }
 
   render() {
-    const { books } = this.state;
+    const { books } = this.state
 
     return (
       <div className="app">

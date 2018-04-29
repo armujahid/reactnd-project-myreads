@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import BookShelf from './BookShelf';
-
+import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
   static propTypes = {
@@ -11,17 +10,17 @@ class ListBooks extends Component {
   }
 
   render() {
-    const { books, onShelfChange } = this.props;
+    const { books, onShelfChange } = this.props
 
     const groupedBooks = books.reduce(function(result, current) {
-      result[current.shelf] = result[current.shelf] || [];
-      result[current.shelf].push(current);
-      return result;
-    }, []);
+      result[current.shelf] = result[current.shelf] || []
+      result[current.shelf].push(current)
+      return result
+    }, [])
 
-    const currentlyReading = groupedBooks['currentlyReading'];
-    const wantToRead = groupedBooks['wantToRead'];
-    const read = groupedBooks['read'];
+    const currentlyReading = groupedBooks['currentlyReading']
+    const wantToRead = groupedBooks['wantToRead']
+    const read = groupedBooks['read']
 
     return (
       <div className="list-books">

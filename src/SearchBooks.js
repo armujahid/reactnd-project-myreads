@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BooksGrid from './BooksGrid'
 
-
 class SearchBooks extends Component {
   static propTypes = {
     onSearch : PropTypes.func.isRequired,
@@ -25,7 +24,7 @@ class SearchBooks extends Component {
   }
 
   render() {
-    const { onShelfChange } = this.props;
+    const { onShelfChange } = this.props
 
     return (
       <div className="search-books">
