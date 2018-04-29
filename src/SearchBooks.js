@@ -15,10 +15,6 @@ class SearchBooks extends Component {
     books: []
   }
 
-  componentDidMount() {
-    this.updateQuery('')
-  }
-
   updateQuery = (query) => {
     this.setState({ query })
     this.props.onSearch(query).then(res => {
