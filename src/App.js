@@ -20,13 +20,20 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf).then(() => {
       this.setState(previous => {
         const index = previous.books.findIndex(p => p.id === book.id)
-        return {
-          books: [
-            ...previous.books.slice(0,index),
-            Object.assign({}, previous.books[index], { shelf }),
-            ...previous.books.slice(index+1)
-          ]
+        // replace book if it already exists
+        if (index !== -1) {
+          return {
+            books: [
+              ...previous.books.slice(0,index),
+              Object.assign({}, previous.books[index], { shelf }),
+              ...previous.books.slice(index+1)
+            ]
+          }
         }
+        // add book
+        const books = previous.books.slice();
+        books.push(Object.assign({}, book, shelf));
+        return { books }
       })
     })
   }
