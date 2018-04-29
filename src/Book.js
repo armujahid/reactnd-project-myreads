@@ -13,7 +13,7 @@ class Book extends Component {
     // TODO: add media query to conditionally display small and large thumbnail
     const bookCoverStyle = { width: 128, height: 193 };
 
-    if (book.imageLinks.thumbnail) {
+    if (book.imageLinks && book.imageLinks.thumbnail) {
       bookCoverStyle.backgroundImage = `url(${book.imageLinks.thumbnail})`
     }
     return (
