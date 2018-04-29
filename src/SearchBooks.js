@@ -5,8 +5,9 @@ import BooksGrid from './BooksGrid'
 
 class SearchBooks extends Component {
   static propTypes = {
-    onSearch : PropTypes.func.isRequired,
-    onShelfChange : PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired,
+    onShelfChange: PropTypes.func.isRequired,
+    booksInShelf: PropTypes.array.isRequired,
   }
 
   state = {
@@ -16,6 +17,11 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     this.setState({ query })
+    // prevent ajax call if search box is empty
+    if (!query) {
+      this.setState({books: []})
+      return
+    }
     this.props.onSearch(query).then(res => {
       if (res && !res.error) {
         this.setState({ books : res })
@@ -25,6 +31,10 @@ class SearchBooks extends Component {
 
   render() {
     const { onShelfChange } = this.props
+    const booksWithShelf = this.state.books.map(book => {
+      const bookInShelf = this.props.booksInShelf.find( p => p.id === book.id);
+      return Object.assign({}, bookInShelf, book)
+    })
 
     return (
       <div className="search-books">
@@ -47,7 +57,7 @@ class SearchBooks extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <BooksGrid books={this.state.books} onShelfChange={onShelfChange}/>
+          <BooksGrid books={booksWithShelf} onShelfChange={onShelfChange}/>
         </div>
       </div>
     )
