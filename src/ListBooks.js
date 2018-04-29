@@ -10,10 +10,18 @@ class ListBooks extends Component {
     onShelfChange : PropTypes.func.isRequired
   }
 
-  // TODO: find available titles and loop on them
-
   render() {
     const { books, onShelfChange } = this.props;
+
+    const groupedBooks = books.reduce(function(result, current) {
+      result[current.shelf] = result[current.shelf] || [];
+      result[current.shelf].push(current);
+      return result;
+    }, []);
+
+    const currentlyReading = groupedBooks['currentlyReading'];
+    const wantToRead = groupedBooks['wantToRead'];
+    const read = groupedBooks['read'];
 
     return (
       <div className="list-books">
@@ -22,9 +30,9 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf title="A" books={books} onShelfChange={onShelfChange}/>
-            <BookShelf title="B" books={books} onShelfChange={onShelfChange}/>
-            <BookShelf title="C" books={books} onShelfChange={onShelfChange}/>
+            {currentlyReading && <BookShelf title="Currently Reading" books={currentlyReading} onShelfChange={onShelfChange}/>}
+            {wantToRead && <BookShelf title="Want to Read" books={wantToRead} onShelfChange={onShelfChange}/>}
+            {read && <BookShelf title="Read" books={read} onShelfChange={onShelfChange}/>}
           </div>
         </div>
         <div className="open-search">
