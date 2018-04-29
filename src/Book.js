@@ -11,11 +11,15 @@ class Book extends Component {
   render() {
     const { book, onShelfChange } = this.props;
     // TODO: add media query to conditionally display small and large thumbnail
+    const bookCoverStyle = { width: 128, height: 193 };
 
+    if (book.imageLinks.thumbnail) {
+      bookCoverStyle.backgroundImage = `url(${book.imageLinks.thumbnail})`
+    }
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+          <div className="book-cover" style={bookCoverStyle}></div>
           <BookShelfChanger shelf={book.shelf} onShelfChange={shelf => onShelfChange(book, shelf)}/>
         </div>
         <div className="book-title">{book.title}</div>
