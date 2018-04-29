@@ -16,6 +16,21 @@ class BooksApp extends Component {
     })
   }
 
+  updateBookShelf(book , shelf) {
+    BooksAPI.update(book, shelf).then(() => {
+      this.setState(previous => {
+        const index = previous.books.findIndex(p => p.id === book.id);
+        return {
+          books: [
+            ...previous.books.slice(0,index),
+            Object.assign({}, previous.books[index], { shelf }),
+            ...previous.books.slice(index+1)
+          ]
+        }
+      })
+    })
+  }
+
   render() {
     const { books } = this.state;
 
@@ -25,7 +40,7 @@ class BooksApp extends Component {
           <SearchBooks/>
         )}/>
         <Route exact path="/" render={() => (
-          <ListBooks books={books}/>
+          <ListBooks books={books} onShelfChange={this.updateBookShelf.bind(this)}/>
         )}/>
       </div>
     )
