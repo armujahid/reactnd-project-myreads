@@ -20,7 +20,7 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf).then(() => {
       this.setState(previous => {
         const index = previous.books.findIndex(p => p.id === book.id)
-        // replace book if it already exists
+        // replace book if it already exists after updating shelf prop
         if (index !== -1) {
           return {
             books: [
@@ -30,9 +30,9 @@ class BooksApp extends Component {
             ]
           }
         }
-        // add book
+        // add book after adding shelf prop
         const books = previous.books.slice();
-        books.push(Object.assign({}, book, shelf));
+        books.push(Object.assign({}, book, { shelf }));
         return { books }
       })
     })
