@@ -11,7 +11,7 @@ class ListBooks extends Component {
 
   render() {
     const { books, onShelfChange } = this.props
-
+    // group by logic https://stackoverflow.com/a/30893916/2073920
     const groupedBooks = books.reduce(function(result, current) {
       result[current.shelf] = result[current.shelf] || []
       result[current.shelf].push(current)

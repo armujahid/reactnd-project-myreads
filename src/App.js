@@ -18,6 +18,10 @@ class BooksApp extends Component {
 
   updateBookShelf = (book , shelf) => {
     BooksAPI.update(book, shelf).then(() => {
+      // updating state when state is an array
+      // https://stackoverflow.com/a/37663294/2073920
+      // merge object
+      // https://stackoverflow.com/a/171256/2073920
       this.setState(previous => {
         const index = previous.books.findIndex(p => p.id === book.id)
         // replace book if it already exists after updating shelf prop
