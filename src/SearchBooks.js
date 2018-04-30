@@ -23,8 +23,12 @@ class SearchBooks extends Component {
       return
     }
     this.props.onSearch(query).then(res => {
-      if (res && !res.error) {
-        this.setState({ books : res })
+      if (res) {
+        if (res.error) {
+          this.setState({books: []})
+        } else {
+          this.setState({ books : res })
+        }
       }
     })
   }
