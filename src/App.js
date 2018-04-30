@@ -38,9 +38,7 @@ class BooksApp extends Component {
     })
   }
 
-  searchBooks(query) {
-    return BooksAPI.search(query).then(books => books)
-  }
+  searchBooks = (query) => BooksAPI.search(query).then(books => books)
 
   render() {
     const { books } = this.state
@@ -49,7 +47,7 @@ class BooksApp extends Component {
       <div className="app">
         <Route path="/search" render={() => (
           <SearchBooks
-            onSearch={this.searchBooks.bind(this)}
+            onSearch={this.searchBooks}
             booksInShelf={books}
             onShelfChange={this.updateBookShelf}/>
         )}/>
