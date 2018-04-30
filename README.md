@@ -19,6 +19,7 @@ See available search terms in SEARCH_TERMS.md file
 
 * install all project dependencies with `yarn install` or `npm install`
 * start the development server with `yarn start` or `npm start`
+* Production build can be created using  `yarn build` or `npm run build`
 
 ## Backend Server
 
