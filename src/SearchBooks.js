@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { DebounceInput } from 'react-debounce-input';
 import BooksGrid from './BooksGrid'
 
 class SearchBooks extends Component {
@@ -45,9 +46,10 @@ class SearchBooks extends Component {
         <div className="search-books-bar">
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
-            <input
+            <DebounceInput
               type="text"
               placeholder="Search by title or author"
+              debounceTimeout={300}
               onChange={(event) => this.updateQuery(event.target.value)}/>
 
           </div>
