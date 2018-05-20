@@ -1,4 +1,5 @@
-# MyReads Project
+# MyReads Project [![Build Status](https://travis-ci.org/armujahid/reactnd-project-myreads.svg?branch=master)](https://travis-ci.org/armujahid/reactnd-project-myreads)
+
 
 This project is created for assessment in Udacity's React Fundamentals course.
 This is basically a bookshelf app with 3 shelves for books.
