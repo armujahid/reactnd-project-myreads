@@ -8,6 +8,7 @@ cache:
 script:
   - yarn install
   - yarn build
+  - cp CNAME ./build
 deploy:
   provider: pages
   skip_cleanup: true
