@@ -4,7 +4,7 @@
     "react": "^16.6.3",
     "react-debounce-input": "^3.2.0",
     "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.11.1",
