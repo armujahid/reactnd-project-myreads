@@ -7,7 +7,7 @@
     "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react": "^7.24.0",
     "react-scripts": "3.4.4"
   },
   "scripts": {
