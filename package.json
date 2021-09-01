@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.13.1",
     "react-debounce-input": "^3.2.2",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.13.1",
     "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
