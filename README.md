@@ -1,4 +1,4 @@
-# MyReads Project [![Build Status](https://travis-ci.org/armujahid/reactnd-project-myreads.svg?branch=master)](https://travis-ci.org/armujahid/reactnd-project-myreads) [![Greenkeeper badge](https://badges.greenkeeper.io/armujahid/reactnd-project-myreads.svg)](https://greenkeeper.io/)
+# MyReads Project [![Build Status](https://travis-ci.org/armujahid/reactnd-project-myreads.svg?branch=master)](https://travis-ci.org/armujahid/reactnd-project-myreads) 
 
 
 This project is created for assessment in Udacity's React Fundamentals course.
